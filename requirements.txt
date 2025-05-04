@@ -1,0 +1,10 @@
+streamlit
+watchdog
+pydantic-settings
+pandas
+numpy
+requests
+pandas
+pyyaml
+pytest
+httpx

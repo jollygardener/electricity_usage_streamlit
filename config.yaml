@@ -1,0 +1,5 @@
+api_key: "YOUR_API_KEY"
+api_endpoint: "https://api.example.com/data"
+timeout: 30
+retry_attempts: 3
+log_level: "INFO"
