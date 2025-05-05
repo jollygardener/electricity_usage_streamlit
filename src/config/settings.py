@@ -10,7 +10,8 @@ class Settings(BaseSettings):
     BEARER_TOKEN: str
 
     # Config values from yaml
-    api_endpoint: Optional[str] = None
+    api_host: Optional[str] = None
+    api_endpoint_history: Optional[str] = None
     timeout: int = 30
     retry_attempts: int = 3
     log_level: str = "INFO"

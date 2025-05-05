@@ -53,8 +53,14 @@ Black is used as a pre-commit hook to keep the code tidy.  Here are steps for fi
     # Optional: run against all files
     pre-commit run --all-files
 
-VSCode extensions used
+### VSCode extensions used
+* [Rest client](https://marketplace.visualstudio.com/items/?itemName=humao.rest-client)
+  * Using (environment variables)[https://marketplace.visualstudio.com/items/?itemName=humao.rest-client#environment-variables]
 
+
+## Data source
+Home Assistant history REST API has a restriction of 10 days of data:
+https://community.home-assistant.io/t/can-i-get-long-term-statistics-from-the-rest-api/761444/2
 
 
 ## Troubleshooting

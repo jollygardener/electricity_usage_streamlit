@@ -1,14 +1,31 @@
-from streamlit import sidebar, title, header, subheader
+import streamlit as st
+from src.api.home_assistant_client import APIClient
 
 
-def create_layout():
-    title("Electricity Usage Streamlit App")
-    header("Welcome to the Electricity Usage Monitor")
+def create_layout(api_client: APIClient):
 
-    sidebar.subheader("Settings")
-    sidebar.selectbox("Select a view:", ["Overview", "Usage Statistics", "Settings"])
+    st.title("Electricity Generation Streamlit App")
+    st.header("Welcome to the Solar Generation Monitor")
 
-    subheader("Current Electricity Usage")
+    st.sidebar.subheader("Settings")
+    view_selected = st.sidebar.selectbox(
+        "Select a view:", ["Overview", "Graph", "Raw Data"]
+    )
+
+    st.subheader("24hr Electricity Generation")
     # Placeholder for displaying electricity usage data
-    # This will be populated with actual data later
-    sidebar.text("Electricity usage data will be displayed here.")
+    dt = st.date_input(
+        "Select generation date:", value=None, min_value=None, max_value=None
+    )
+    data = api_client.get_history_data(dt.isoformat() if dt else None)
+    if not data.empty:
+        match view_selected:
+            case "Overview":
+                st.write("Overview of electricity generation data.")
+                st.write(data.describe())
+            case "Graph":
+                st.line_chart(data, x="datetime", y="value", use_container_width=True)
+            case "Raw Data":
+                st.dataframe(data)
+    else:
+        st.warning("No data available for the selected date.")

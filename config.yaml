@@ -1,5 +1,5 @@
-api_key: "YOUR_API_KEY"
-api_endpoint: "https://api.example.com/data"
+api_host: "http://192.168.12.33:8123/"
+api_endpoint_history: "api/history/period/"
 timeout: 30
 retry_attempts: 3
 log_level: "INFO"
