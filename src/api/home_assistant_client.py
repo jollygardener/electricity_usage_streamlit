@@ -9,7 +9,7 @@ from src.config.settings import settings
 
 class APIClient:
     def __init__(self):
-        self.base_url = settings.api_host
+        self.base_url = f"http://{settings.API_HOST}/"
         self.history_url = self.base_url + settings.api_endpoint_history
         self.bearer_token = settings.BEARER_TOKEN
         self.timeout = settings.timeout
@@ -20,13 +20,19 @@ class APIClient:
             "Content-Type": "application/json",
         }
 
-    def get_history_data(self, start_date: datetime) -> pd.DataFrame:
+    def get_history_data(
+        self,
+        start_date: datetime,
+        entity_id: str = "sensor.myenergi_home_zappi_hub_generated_today_2",
+    ) -> pd.DataFrame:
         if not start_date:
             date = datetime.datetime.now().strftime("%Y-%m-%d")
         else:
             date = start_date
 
-        request_params = "?filter_entity_id=sensor.myenergi_home_zappi_hub_generated_today_2&minimal_response=true"
+        request_params = (
+            f"?filter_entity_id={entity_id}&minimal_response=true&no_attributes=true"
+        )
 
         response = requests.get(
             self.history_url + date + request_params,

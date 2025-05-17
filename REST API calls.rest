@@ -15,6 +15,14 @@ Content-Type: application/json
 GET http://192.168.12.33:8123/api/history/period
     ?filter_entity_id=sensor.myenergi_home_zappi_hub_generated_today_2
     &minimal_response=true
-    &no_attributes=true
+    &no_attributes=false
+Authorization: Bearer {{$dotenv %BEARER_TOKEN}}
+Content-Type: application/json
+
+###
+GET http://192.168.12.33:8123/api/history/period
+    ?filter_entity_id=sensor.octopus_energy_electricity_19l3866252_1900014024966_current_accumulative_consumption
+    &minimal_response=true
+    &no_attributes=false
 Authorization: Bearer {{$dotenv %BEARER_TOKEN}}
 Content-Type: application/json

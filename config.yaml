@@ -1,5 +1,14 @@
-api_host: "http://192.168.12.33:8123/"
+# api_host: "http://192.168.12.33:8123/"
 api_endpoint_history: "api/history/period/"
 timeout: 30
 retry_attempts: 3
 log_level: "INFO"
+entities:
+  - id: "sensor.myenergi_home_zappi_hub_generated_today_2"
+    display_name: "Energy Generated Today"
+  - id: "sensor.octopus_energy_electricity_19l3866252_1900014024966_current_accumulative_consumption"
+    display_name: "Electricity Consumption"
+  - id: "sensor.myenergi_harvi_10662410_power_ct_storage"
+    display_name: "Hot water saved"
+  - id: "sensor.octopus_energy_electricity_19l3866252_1900014024966_current_accumulative_cost"
+    display_name: "Electricity Cost"

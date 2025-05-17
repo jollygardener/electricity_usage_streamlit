@@ -20,7 +20,7 @@ class EnergyAttributes(BaseModel):
 class EnergyReading(BaseModel):
     entity_id: Optional[str] = None
     state: Optional[float] = None  # Changed to Optional[float]
-    attributes: Optional[EnergyAttributes] = None
+    # attributes: Optional[EnergyAttributes] = None
     last_changed: datetime
     last_updated: Optional[datetime] = None
 
